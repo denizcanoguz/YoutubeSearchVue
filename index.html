@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Youtube Search with Vue</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Youtube Search with Vue</h1>
+        <input v-model="query" type="text" class="form-control" placeholder="Search..">
+        <a @click.prevent="doSearch()" href="#" class="btn btn-primary my-2">Search</a>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div v-for="item in items" class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img :src="item.snippet.thumbnails.high.url">
+              <div class="card-body">
+                <h4>{{ item.snippet.title }}</h4>
+                <p class="card-text">
+                  {{ item.snippet.description }}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a :href="`https://www.youtube.com/watch?v=${item.id.videoId}`" target="_blank" class="btn btn-sm btn-outline-secondary">Watch</a>
+                  </div>
+                  <small class="text-muted">{{ item.snippet.channelTitle }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p>&copy; Deniz Can Oğuz</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
