@@ -10,7 +10,6 @@
 </head>
 <body>
   <main id="app" role="main">
-
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Youtube Search with Vue</h1>
@@ -21,7 +20,6 @@
 
     <div class="album py-5 bg-light">
       <div class="container">
-
         <div class="row">
           <div v-if="item.id.kind === 'youtube#video'" v-for="item in items" class="col-md-4">
             <div class="card mb-4 shadow-sm">
@@ -43,15 +41,14 @@
         </div>
       </div>
     </div>
-
   </main>
 
   <footer class="text-muted">
     <div class="container">
       <p>&copy; Deniz Can Oğuz</p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>
